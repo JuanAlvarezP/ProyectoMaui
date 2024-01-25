@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.VerCitas"
+             Title="VerCitas"
+             BackgroundColor="Wheat">
+    <ListView x:Name="listViewCitas">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                        <Label Text="Fecha y Hora:" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding FechaHora, StringFormat='{0:dd/MM/yyyy HH:mm}', Mode=TwoWay}" TextColor="Brown"/>
+
+                        <Label Text="Motivo:" FontAttributes="Bold"  TextColor="Black"/>
+                        <Label Text="{Binding Motivo}" TextColor="Brown"/>
+
+                        <Label Text="Nombre del Animal:" FontAttributes="Bold"  TextColor="Black"/>
+                        <Label Text="{Binding NombreAnimal}" TextColor="Brown"/>
+
+                        <Label Text="Nombre del Propietario:" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding NombrePropietario}" TextColor="Brown"/>
+
+                        <!-- Botón Detalles para redirigir a la página DetalleCita -->
+                        <Button Text="Detalles" Clicked="DetalleCitaClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
+
+                        <!-- Botón para eliminar la cita -->
+                        <Button Text="Eliminar" Clicked="EliminarCitaClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

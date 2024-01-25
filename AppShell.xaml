@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ProyectoP2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ProyectoP2"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Admin" >
+            <ShellContent Route="AdminPage" ContentTemplate="{DataTemplate local:AdminPage}" />
+        </Tab>
+        <Tab Title="Menu Principal">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Citas">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Citas}" />
+        </Tab>
+        <Tab Title="Animales">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Animales}" />
+        </Tab>
+        <Tab Title="Clientes">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Clientes}" />
+        </Tab>
+
+    </TabBar>
+
+
+</Shell>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.RegistrarCitas"
+             Title="RegistrarCitas"
+             BackgroundColor="Wheat">
+    <VerticalStackLayout Padding="20">
+        <DatePicker x:Name="datePicker" Date="{Binding NuevaCita.FechaHora, Mode=TwoWay}" TextColor="Brown"/>
+        <TimePicker x:Name="timePicker" Time="{Binding NuevaCita.FechaHora, Mode=TwoWay}" TextColor="Brown"/>
+        <Entry Placeholder="Motivo" Text="{Binding Motivo}" TextColor="Brown"/>
+        <Entry Placeholder="Nombre del Animal" Text="{Binding NombreAnimal}" TextColor="Brown"/>
+        <Entry Placeholder="Nombre del Propietario" Text="{Binding NombrePropietario}" TextColor="Brown"/>
+        <Entry Placeholder="Teléfono del Propietario" Text="{Binding NumeroTelefonoPropietario}" TextColor="Brown"/>
+        <Editor Placeholder="Observaciones" Text="{Binding Observaciones}" TextColor="Brown"/>
+
+        <Button Text="Registrar" Clicked="RegistrarClicked" TextColor="Brown" />
+    </VerticalStackLayout>
+</ContentPage>

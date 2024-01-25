@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.RegistrarClientes"
+             Title="RegistrarClientes"
+             BackgroundColor="Wheat">
+    <StackLayout Padding="20">
+        <Label Text="Nombre" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryNombre" Placeholder="Nombre del cliente" TextColor="Brown"/>
+
+        <Label Text="Apellido" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryApellido" Placeholder="Apellido del cliente" TextColor="Brown"/>
+
+        <Label Text="Correo Electrónico" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryCorreo" Placeholder="Correo electrónico" TextColor="Brown"/>
+
+        <Label Text="Número de Teléfono" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryTelefono" Placeholder="Número de teléfono" TextColor="Brown"/>
+
+        <Label Text="Dirección" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryDireccion" Placeholder="Dirección del cliente" TextColor="Brown"/>
+
+        <Button Text="Guardar" Clicked="GuardarClienteClicked" TextColor="Brown"/>
+    </StackLayout>
+</ContentPage>

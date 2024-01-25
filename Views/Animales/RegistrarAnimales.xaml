@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.RegistrarAnimales"
+             Title="RegistrarAnimales"
+             BackgroundColor="Wheat">
+
+    <StackLayout Padding="20">
+
+        <Entry Placeholder="Nombre" x:Name="entryNombre"  TextColor="Brown"/>
+        <Entry Placeholder="Especie" x:Name="entryEspecie"  TextColor="Brown"/>
+        <Entry Placeholder="Raza" x:Name="entryRaza"  TextColor="Brown"/>
+        <DatePicker Date="{Binding FechaNacimiento}" Format="dd/MM/yyyy" x:Name="datePickerFechaNacimiento"  TextColor="Brown"/>
+        <Picker Title="Género" x:Name="pickerGenero" TextColor="Brown">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Macho</x:String>
+                    <x:String>Hembra</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Entry Placeholder="Observaciones" x:Name="entryObservaciones"  TextColor="Brown"/>
+
+        <Button Text="Registrar" Clicked="RegistrarClicked" TextColor="Brown" />
+    </StackLayout>
+
+
+</ContentPage>

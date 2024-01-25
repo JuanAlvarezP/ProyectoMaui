@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.VerClientes"
+             Title="VerClientes"
+             BackgroundColor="Wheat">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <ListView x:Name="listViewClientes">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding NombreCli}" FontAttributes="Bold" FontSize="16" TextColor="Brown"/>
+                                <Label Text="{Binding ApellidoCli}" FontSize="14" TextColor="Brown"/>
+                                <Label Text="{Binding CorreoElectronicoCli}" FontSize="14" TextColor="Brown"/>
+                                <Label Text="{Binding NumeroTelefonoCli}" FontSize="14" TextColor="Brown"/>
+                                <Label Text="{Binding FechaRegistroCli, StringFormat='{0:dd/MM/yyyy}'}" FontSize="14" TextColor="Brown"/>
+                                <Label Text="{Binding Direccion}" FontSize="14" TextColor="Brown"/>
+
+                                <Button Text="Detalles" Clicked="DetalleClienteClicked" CommandParameter="{Binding .}" TextColor="Brown"/>
+
+                                <!-- Botón para eliminar el animal -->
+                                <Button Text="Eliminar" Clicked="EliminarClienteClicked" CommandParameter="{Binding .}" TextColor="Brown"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
