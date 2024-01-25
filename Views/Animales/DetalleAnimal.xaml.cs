@@ -1,4 +1,5 @@
-using ProyectoP2.Models;
+    using ProyectoP2.Models;
+using ProyectoP2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,11 +9,13 @@ namespace ProyectoP2
 {
     public partial class DetalleAnimal : ContentPage
     {
+        private AnimalesViewModel viewModel;
         private AnimalesClase animal;
 
-        public DetalleAnimal(AnimalesClase animal)
+        public DetalleAnimal(AnimalesViewModel viewModel, AnimalesClase animal)
         {
             InitializeComponent();
+            this.viewModel = viewModel;
             this.animal = animal;
             BindingContext = animal;
         }

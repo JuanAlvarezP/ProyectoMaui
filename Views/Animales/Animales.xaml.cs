@@ -1,21 +1,28 @@
-namespace ProyectoP2;
+using ProyectoP2.ViewModels;
 
-public partial class Animales : ContentPage
+namespace ProyectoP2
 {
-	public Animales()
-	{
-		InitializeComponent();
-	}
-
-    private async void botonRegistrarAnimales(object sender, EventArgs e)
+    public partial class Animales : ContentPage
     {
-        await Navigation.PushAsync(new RegistrarAnimales());
+        private readonly AnimalesViewModel viewModel;
 
-    }
+        public Animales()
+        {
+            InitializeComponent();
+            viewModel = new AnimalesViewModel();
+            BindingContext = viewModel;
+        }
 
-    private async void botonVerAnimales(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new VerAnimales());
+        private async void botonRegistrarAnimales(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrarAnimales(viewModel.Animales));
+        }
 
+
+        private async void botonVerAnimales(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerAnimales(viewModel.Animales));
+        }
     }
 }
+

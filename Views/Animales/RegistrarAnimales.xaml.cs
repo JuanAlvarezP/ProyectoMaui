@@ -1,13 +1,21 @@
 using ProyectoP2.Models;
+using ProyectoP2.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace ProyectoP2;
 
 public partial class RegistrarAnimales : ContentPage
 {
-	public RegistrarAnimales()
+    private readonly AnimalesViewModel viewModel;
+
+    public RegistrarAnimales(ObservableCollection<AnimalesClase> animales)
     {
         InitializeComponent();
+        viewModel = new AnimalesViewModel();
+        viewModel.Animales = animales; // Asigna la lista de animales al viewModel
+        BindingContext = new AnimalesClase(); // Nuevo animal para la entrada de datos
     }
+
 
     private async void RegistrarClicked(object sender, EventArgs e)
     {
@@ -29,6 +37,7 @@ public partial class RegistrarAnimales : ContentPage
             await DisplayAlert("Error", "Por favor, completa todos los campos obligatorios.", "OK");
             return;
         }
+
         // Crear una nueva instancia de la clase AnimalesClase con los datos ingresados
         AnimalesClase nuevoAnimal = new AnimalesClase()
         {
@@ -40,25 +49,17 @@ public partial class RegistrarAnimales : ContentPage
             Observaciones = observaciones
         };
 
-        List<AnimalesClase> animalesGuardados = new List<AnimalesClase>();
-
-        if (Preferences.ContainsKey("Animales"))
-        {
-            string animalesString = Preferences.Get("Animales", string.Empty);
-            animalesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<AnimalesClase>>(animalesString);
-        }
-
-        // Agregar el nuevo animal a la lista de animales guardados
-        animalesGuardados.Add(nuevoAnimal);
+        // Agregar el nuevo animal al ViewModel
+        viewModel.Animales.Add(nuevoAnimal);
 
         // Serializar la lista actualizada de animales a formato JSON
-        string serializedAnimales = System.Text.Json.JsonSerializer.Serialize(animalesGuardados);
+        string serializedAnimales = System.Text.Json.JsonSerializer.Serialize(viewModel.Animales);
 
         // Guardar la lista de animales en las preferencias
         Preferences.Set("Animales", serializedAnimales);
 
         // Mostrar un mensaje de éxito
-        DisplayAlert("Éxito", "Se ha registrado el animal correctamente", "Aceptar");
+        await DisplayAlert("Éxito", "Se ha registrado el animal correctamente", "Aceptar");
 
         // Puedes agregar aquí la navegación a otra página si es necesario
     }

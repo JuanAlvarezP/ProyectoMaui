@@ -1,13 +1,19 @@
 using ProyectoP2.Models;
+using ProyectoP2.ViewModels;
 using System.Text.Json;
 
 namespace ProyectoP2;
 
 public partial class RegistrarClientes : ContentPage
 {
+
+    private ClientesViewModel viewModel;
+
     public RegistrarClientes()
     {
         InitializeComponent();
+        viewModel = new ClientesViewModel();
+        BindingContext = new ClientesClase(); // Nuevo cliente para la entrada de datos
     }
 
     private void GuardarClienteClicked(object sender, EventArgs e)

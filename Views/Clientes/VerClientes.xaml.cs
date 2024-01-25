@@ -1,4 +1,5 @@
 using ProyectoP2.Models;
+using ProyectoP2.ViewModels;
 using System;
 using System.Collections.Generic;
 
@@ -7,17 +8,13 @@ namespace ProyectoP2
 {
     public partial class VerClientes : ContentPage
     {
+        private ClientesViewModel viewModel;
+
         public VerClientes()
         {
             InitializeComponent();
-
-            if (Preferences.ContainsKey("Clientes"))
-            {
-                string clientesString = Preferences.Get("Clientes", string.Empty);
-                List<ClientesClase> clientesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<ClientesClase>>(clientesString);
-                listViewClientes.ItemsSource = clientesGuardados;
-                BindingContext = this;
-            }
+            viewModel = new ClientesViewModel();
+            BindingContext = viewModel;
         }
 
         private async void EliminarClienteClicked(object sender, EventArgs e)

@@ -1,6 +1,8 @@
 using ProyectoP2.Models;
+using ProyectoP2.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -8,18 +10,21 @@ namespace ProyectoP2
 {
     public partial class VerAnimales : ContentPage
     {
-        public VerAnimales()
+
+        private readonly AnimalesViewModel viewModel;
+
+        public VerAnimales(ObservableCollection<AnimalesClase> animales)
         {
             InitializeComponent();
 
-            if (Preferences.ContainsKey("Animales"))
-            {
-                string animalesString = Preferences.Get("Animales", string.Empty);
-                List<AnimalesClase> animalesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<AnimalesClase>>(animalesString);
-                listViewAnimales.ItemsSource = animalesGuardados;
-                BindingContext = this;
-            }
+            // Inicializa la lista de animales en el ViewModel
+            var viewModel = new AnimalesViewModel();
+            viewModel.Animales = animales;
+
+            // Establece el ViewModel como contexto de enlace
+            BindingContext = viewModel;
         }
+    
 
         private async void EliminarAnimalClicked(object sender, EventArgs e)
         {
@@ -45,9 +50,10 @@ namespace ProyectoP2
         {
             var animalSeleccionado = (AnimalesClase)((Button)sender).CommandParameter;
 
-            // Redirigir a la página DetalleAnimal pasando el animal seleccionado como parámetro
-            await Navigation.PushAsync(new DetalleAnimal(animalSeleccionado));
+            // Pasa tanto el viewModel como el objeto AnimalesClase al constructor de DetalleAnimal
+            await Navigation.PushAsync(new DetalleAnimal(viewModel, animalSeleccionado));
         }
+
 
         protected override void OnAppearing()
         {
