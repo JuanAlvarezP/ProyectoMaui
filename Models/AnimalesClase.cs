@@ -16,5 +16,7 @@ namespace ProyectoP2.Models
         public DateTime FechaNacimiento { get; set; }
         public string Genero { get; set; }
         public string Observaciones { get; set; }
+
+
     }
 }
