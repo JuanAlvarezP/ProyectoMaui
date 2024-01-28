@@ -33,6 +33,7 @@
             <Button BackgroundColor="#9f5d34" Text="Citas" Clicked="botonCitas" TextColor="White"/>
             <Button BackgroundColor="#9f5d34" Text="Animales" Clicked="botonAnimales" TextColor="White"/>
             <Button BackgroundColor="#9f5d34" Text="Cliente" Clicked="botonClientes" TextColor="White"/>
+            <Button BackgroundColor="#9f5d34" Text="Necesitan un hogar" Clicked="botonAPI" TextColor="White"/>
         </StackLayout>
     </Grid>
 
