@@ -22,7 +22,7 @@
         <Tab Title="Clientes">
             <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Clientes}" />
         </Tab>
-        <Tab Title="Perros">
+        <Tab Title="Perdidos">
             <ShellContent Route="RazasPerrosPage" ContentTemplate="{DataTemplate local:RazasPerrosPage}" />
         </Tab>
 

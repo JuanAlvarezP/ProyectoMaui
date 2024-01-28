@@ -4,7 +4,8 @@
              x:Class="ProyectoP2.RazasPerrosPage"
              Title="Adoptar">
     <StackLayout>
-        <Label Text="Perdidos" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
+        <Label Text="Si lo has visto, llama al siguiente número +593 98 989 8290" 
+               FontSize="Subtitle" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
         <ListView x:Name="RazasListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -12,7 +13,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Mostrar mas" Clicked="OnMostrarSiguienteImagenClicked" />
+        <Button Text="Siguiente" Clicked="OnMostrarSiguienteImagenClicked" />
         <Image x:Name="ImagenPerro" Aspect="AspectFit" />
     </StackLayout>
 </ContentPage>

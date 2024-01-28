@@ -16,19 +16,19 @@ namespace ProyectoP2
             _httpClient = new HttpClient();
         }
 
-        public async Task<DogApiResponse> GetHoundImages()
+        public async Task<DogApiResponse> GetImages()
         {
             var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breed/hound/images");
             return JsonConvert.DeserializeObject<DogApiResponse>(response);
         }
 
-        public async Task<BreedListApiResponse> GetBreedList()
+        public async Task<BreedListApiResponse> GetListaRaza()
         {
             var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breeds/list/all");
             return JsonConvert.DeserializeObject<BreedListApiResponse>(response);
         }
 
-        public async Task<DogImagesApiResponse> GetRandomDogImage()
+        public async Task<DogImagesApiResponse> GetRandomImagen()
         {
             var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breeds/image/random");
             return JsonConvert.DeserializeObject<DogImagesApiResponse>(response);

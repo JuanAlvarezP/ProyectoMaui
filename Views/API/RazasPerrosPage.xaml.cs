@@ -16,10 +16,12 @@ namespace ProyectoP2
 
         private async void OnMostrarSiguienteImagenClicked(object sender, EventArgs e)
         {
-              var randomImageApiResponse = await _viewModel.GetRandomDogImage();
+              var randomImageApiResponse = await _viewModel.GetRandomImagen();
+              var Raza = await _viewModel.GetListaRaza();
 
             if (randomImageApiResponse.Status == "success")
             {
+                ImagenPerro.Source = randomImageApiResponse.Message;
                 ImagenPerro.Source = randomImageApiResponse.Message;
             }
             else
