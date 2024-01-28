@@ -1,36 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System.Net.Http;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 using ProyectoP2.Models;
-using ProyectoP2.Services;
+using ProyectoP2.ViewModels;
+using static ProyectoP2.Models.RazaPerro;
 
-namespace ProyectoP2.ViewModels
+namespace ProyectoP2
 {
-    public class RazasPerrosViewModel : BaseViewModel
+    public class RazasPerrosViewModel: BaseViewModel
     {
-        private readonly RazasPerrosApiService apiService;
-
-        private List<RazaPerro> razasPerros;
-        public List<RazaPerro> RazasPerros
-        {
-            get { return razasPerros; }
-            set
-            {
-                if (razasPerros != value)
-                {
-                    razasPerros = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        private readonly HttpClient _httpClient;
 
         public RazasPerrosViewModel()
         {
-            apiService = new RazasPerrosApiService();
-            CargarRazasPerros();
+            _httpClient = new HttpClient();
         }
 
-        private async void CargarRazasPerros()
+        public async Task<DogApiResponse> GetHoundImages()
         {
-            RazasPerros = await apiService.ObtenerRazasPerros();
+            var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breed/hound/images");
+            return JsonConvert.DeserializeObject<DogApiResponse>(response);
+        }
+
+        public async Task<BreedListApiResponse> GetBreedList()
+        {
+            var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breeds/list/all");
+            return JsonConvert.DeserializeObject<BreedListApiResponse>(response);
+        }
+
+        public async Task<DogImagesApiResponse> GetRandomDogImage()
+        {
+            var response = await _httpClient.GetStringAsync("https://dog.ceo/api/breeds/image/random");
+            return JsonConvert.DeserializeObject<DogImagesApiResponse>(response);
         }
     }
 }
+

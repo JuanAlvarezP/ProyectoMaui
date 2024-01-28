@@ -1,9 +1,9 @@
-﻿	namespace ProyectoP2;
+﻿namespace ProyectoP2;
 
 public partial class AppShell : Shell
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public AppShell()
+    {
+        InitializeComponent();
+    }
 }

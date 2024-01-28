@@ -1,12 +1,12 @@
 using ProyectoP2.Models;
-    
+
 
 
 namespace ProyectoP2;
 
 public partial class RegistrarCitas : ContentPage
 {
-    public CitasClase NuevaCita { get; set; }           
+    public CitasClase NuevaCita { get; set; }
 
     public RegistrarCitas()
     {

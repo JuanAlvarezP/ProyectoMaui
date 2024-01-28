@@ -2,15 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoP2.RazasPerrosPage"
-             Title="RazasPerrosPage">
-    <VerticalStackLayout>
-        <Label Text="Lista de Razas de Perros" FontSize="24" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <ListView ItemsSource="{Binding RazasPerros}" HasUnevenRows="True">
+             Title="Adoptar">
+    <StackLayout>
+        <Label Text="Perdidos" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
+        <ListView x:Name="RazasListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Nombre}" Detail="{Binding Descripcion}" />
+                    <TextCell Text="{Binding}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </VerticalStackLayout>
+        <Button Text="Mostrar mas" Clicked="OnMostrarSiguienteImagenClicked" />
+        <Image x:Name="ImagenPerro" Aspect="AspectFit" />
+    </StackLayout>
 </ContentPage>

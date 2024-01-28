@@ -1,10 +1,6 @@
 using ProyectoP2.Models;
 using ProyectoP2.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace ProyectoP2
 {
@@ -24,7 +20,7 @@ namespace ProyectoP2
             // Establece el ViewModel como contexto de enlace
             BindingContext = viewModel;
         }
-    
+
 
         private async void EliminarAnimalClicked(object sender, EventArgs e)
         {

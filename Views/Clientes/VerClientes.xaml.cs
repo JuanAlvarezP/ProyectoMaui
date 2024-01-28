@@ -1,7 +1,5 @@
 using ProyectoP2.Models;
 using ProyectoP2.ViewModels;
-using System;
-using System.Collections.Generic;
 
 
 namespace ProyectoP2

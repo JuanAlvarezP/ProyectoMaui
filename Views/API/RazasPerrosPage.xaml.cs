@@ -1,39 +1,30 @@
-using ProyectoP2.Models;
 using ProyectoP2.ViewModels;
-using ProyectoP2.Services;
-using ProyectoP2.Views;
-using System.Collections.Generic;
+using ProyectoP2.Models;
 
-namespace ProyectoP2;
-
+namespace ProyectoP2
+{
     public partial class RazasPerrosPage : ContentPage
     {
-        private readonly RazasPerrosApiService apiService;
-        private List<RazaPerro> razasPerros;
+        private readonly RazasPerrosViewModel _viewModel;
 
         public RazasPerrosPage()
         {
             InitializeComponent();
-            apiService = new RazasPerrosApiService();
-            CargarRazasPerros();
+            _viewModel = new RazasPerrosViewModel();
+            BindingContext = _viewModel;
         }
 
-        public List<RazaPerro> RazasPerros
+        private async void OnMostrarSiguienteImagenClicked(object sender, EventArgs e)
         {
-            get { return razasPerros; }
-            set
+              var randomImageApiResponse = await _viewModel.GetRandomDogImage();
+
+            if (randomImageApiResponse.Status == "success")
             {
-                if (razasPerros != value)
-                {
-                    razasPerros = value;
-                    OnPropertyChanged();
-                }
+                ImagenPerro.Source = randomImageApiResponse.Message;
+            }
+            else
+            {
             }
         }
-
-        private async void CargarRazasPerros()
-        {
-            RazasPerros = await apiService.ObtenerRazasPerros();
-        }
-
     }
+}

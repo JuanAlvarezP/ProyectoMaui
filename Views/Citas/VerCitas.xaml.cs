@@ -1,7 +1,6 @@
 namespace ProyectoP2;
 using ProyectoP2.Models;
 using ProyectoP2.Views.Citas;
-using System.Windows.Input;
 
 public partial class VerCitas : ContentPage
 {
@@ -58,7 +57,7 @@ public partial class VerCitas : ContentPage
                     // Actualizar la lista en la interfaz
                     listViewCitas.ItemsSource = null;
                     listViewCitas.ItemsSource = citas;
-                }  
+                }
             }
         }
     }

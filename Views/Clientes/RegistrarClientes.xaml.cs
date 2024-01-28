@@ -37,18 +37,18 @@ public partial class RegistrarClientes : ContentPage
         }
         ClientesClase nuevoCliente = new ClientesClase
         {
-            
+
             NombreCli = entryNombre.Text,
             ApellidoCli = entryApellido.Text,
             CorreoElectronicoCli = entryCorreo.Text,
             NumeroTelefonoCli = entryTelefono.Text,
-            FechaRegistroCli = DateTime.Now, 
+            FechaRegistroCli = DateTime.Now,
             Direccion = entryDireccion.Text
 
 
         };
 
-        
+
         List<ClientesClase> listaClientes = new List<ClientesClase>();
 
         if (Preferences.ContainsKey("Clientes"))

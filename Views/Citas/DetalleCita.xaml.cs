@@ -1,5 +1,4 @@
 using ProyectoP2.Models;
-using System.Globalization;
 
 namespace ProyectoP2.Views.Citas;
 
@@ -11,7 +10,7 @@ public partial class DetalleCita : ContentPage
     {
         InitializeComponent();
         this.cita = cita;
-        BindingContext = this.cita; 
+        BindingContext = this.cita;
     }
 
     private async void ActualizarCitaClicked(object sender, EventArgs e)
